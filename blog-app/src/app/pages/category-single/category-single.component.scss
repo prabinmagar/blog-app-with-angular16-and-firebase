@@ -1,0 +1,46 @@
+@import "../.././../styles.scss";
+
+.sc-single-category{
+  padding: 36px 0;
+
+  .category-top{
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+
+    &-content{
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+    }
+
+    &-title{
+      font-size: 36px;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 24px;
+      max-width: 720px;
+
+      .title-separator{
+        display: inline-block;
+        margin: 0 16px;
+        font-size: 30px;
+      }
+    }
+
+    &-description{
+      color: $white;
+      line-height: 1.5;
+      font-size: 18px;
+    }
+  }
+
+  .posts-list{
+    margin-top: 48px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}

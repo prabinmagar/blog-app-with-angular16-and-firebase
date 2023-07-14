@@ -1,0 +1,83 @@
+@import "../../../styles.scss"
+;
+
+.navigation{
+  position: relative;
+  transition: $default-transition;
+
+  .nav-hide-btn{
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 28px;
+    cursor: pointer;
+    transition: $default-transition;
+    display: none;
+
+    &:hover{
+      rotate: 180deg;
+    }
+
+    @include breakpoint-down(lg){
+      display: flex;
+    }
+  }
+  .nav-item{
+    margin-right: 20px;
+    margin-left: 20px;
+
+    @include breakpoint-down(xl){
+      margin-right: 18px;
+      margin-left: 18px;
+    }
+  }
+  .nav-link{
+    color: $onyx;
+    font-weight: 600;
+
+    @include breakpoint-down(lg){
+      font-size: 20px;
+      &:hover{
+        color: $black;
+      }
+    }
+  }
+
+  @include breakpoint-down(lg){
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 260px;
+    z-index: 999;
+    background-color: $white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transform: translateX(100%);
+
+    .nav-list{
+      flex-direction: column;
+      width: 100%;
+      padding: 20px;
+
+      .nav-item{
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+
+        &:last-child{
+          border-bottom: none;
+        }
+      }
+    }
+
+    @include breakpoint-down(xs){
+      width: 100%;
+    }
+  }
+}
+
+.show-navigation{
+  transform: translateX(0);
+}

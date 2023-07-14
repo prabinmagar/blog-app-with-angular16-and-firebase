@@ -1,0 +1,21 @@
+<div class="post" *ngIf="postData" [routerLink]="['/posts', postData.id]">
+  <div class="post-content">
+    <div class="post-img">
+      <img [src]="postData?.featuredImage" class="object-fit-cover" />
+    </div>
+    <div class="post-body">
+      <div class="post-badge badge text-base">{{ postData?.category.categoryName }}</div>
+      <h3 class="post-title text-lg">{{ postData?.title }}</h3>
+      <div class="post-info">
+        <div class="author-img">
+          <img src="../../../assets/images/avatar.png" />
+        </div>
+        <div class="author-text flex items-center flex-wrap">
+          <span class="text-base">{{ postData?.author }}</span>
+          <span class="text-base">{{ postData?.createdAt.toDate() | date }}</span>
+          <div class="post-stat nowrap"><span>Views:</span> {{ postData?.views }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

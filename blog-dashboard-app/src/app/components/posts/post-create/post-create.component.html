@@ -1,0 +1,84 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>Add New Post</h3>
+      </div>
+      <div class="content-body">
+        <div class="post-form">
+          <form [formGroup]="addPostForm" (ngSubmit)="onSubmit()">
+            <div class="form-elem-group">
+              <div class="form-elem">
+                <label for="" class="form-label">Title</label>
+                <input type="text" class="form-control" placeholder="" formControlName="title" [ngClass]="{'is-invalid': fc['title'].touched && fc['title'].invalid }" />
+                <div *ngIf="fc['title'].hasError('required')">
+                  <span class="form-text" *ngIf="fc['title'].touched && fc['title'].invalid">Title can't be empty</span>
+                </div>
+              </div>
+              <div class="form-elem">
+                <label for="" class="form-label">Category</label>
+                <select class="form-select" formControlName="category" [ngClass]="{'is-invalid': fc['category'].touched && fc['category'].invalid }">
+                  <option [ngValue]="{ categoryId:category?.id, categoryName:category?.category}" *ngFor="let category of categoriesList">{{ category.category }}</option>
+                </select>
+                <div *ngIf="fc['category'].hasError('required')">
+                  <span class="form-text" *ngIf="fc['category'].touched && fc['category'].invalid">Please select a category</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-elem-group">
+              <div class="form-elem">
+                <label for="" class="form-label">Author</label>
+                <input type="text" class="form-control" placeholder="" formControlName="author" [ngClass]="{'is-invalid': fc['author'].touched && fc['author'].invalid }" />
+                <div *ngIf="fc['author'].hasError('required')">
+                  <span class="form-text" *ngIf="fc['author'].touched && fc['author'].invalid">Author name is required.</span>
+                </div>
+              </div>
+              <div class="form-elem">
+                <label for="" class="form-label">Tags</label>
+                <input type="text" class="form-control" placeholder="" formControlName="tags" />
+              </div>
+            </div>
+
+            <div class="form-elem">
+              <label for="" class="form-label">Excerpt</label>
+              <textarea name="" rows="10" formControlName="excerpt" [ngClass]="{'is-invalid': fc['excerpt'].touched && fc['excerpt'].invalid }"></textarea>
+              <div *ngIf="fc['excerpt'].hasError('required')">
+                <span class="form-text" *ngIf="fc['excerpt'].touched && fc['excerpt'].invalid">Title can't be empty</span>
+              </div>
+            </div>
+
+            <div class="form-elem">
+              <label for="" class="form-label">Content</label>
+              <angular-editor formControlName="content" [config]="editorConfig"></angular-editor>
+              <div *ngIf="fc['content'].hasError('required')">
+                <span class="form-text" *ngIf="fc['content'].touched && fc['content'].invalid">Title can't be empty</span>
+              </div>
+            </div>
+
+            <div class="form-elem-group">
+              <div class="form-elem">
+                <label for="" class="form-label">Featured Image</label>
+                <input type="file" accept="*/image" class="form-control" placeholder="" formControlName="featuredImage" [ngClass]="{'is-invalid': fc['featuredImage'].touched && fc['featuredImage'].invalid }" (change)="onFileSelected($event)" />
+                <div *ngIf="fc['featuredImage'].hasError('required')">
+                  <span class="form-text" *ngIf="fc['featuredImage'].touched && fc['featuredImage'].invalid">Title can't be empty</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-btn-wrapper">
+              <button type="submit" class="btn">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+

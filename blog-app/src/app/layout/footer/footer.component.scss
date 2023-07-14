@@ -1,0 +1,167 @@
+@import "../../../styles.scss";
+
+.footer{
+  border-top: 1px solid $platinum;
+  &-content{
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+
+    @include breakpoint-down(lg){
+      grid-template-columns: 2fr 1fr 1fr;
+      row-gap: 40px;
+    }
+
+    @include breakpoint-down(md){
+      grid-template-columns: repeat(1, 1fr);
+      row-gap: 24px;
+    }
+  }
+
+  .item-title{
+    font-size: 18px;
+    color: $raisin-black;
+    margin-bottom: 20px;
+
+    @include breakpoint-down(lg){
+      font-size: 17px;
+    }
+    @include breakpoint-down(sm){
+      font-size: 16px;
+    }
+  }
+
+  .footer-list{
+    li{
+      margin-bottom: 12px;
+    }
+    .footer-link{
+      color: $onyx;
+      transition: $default-transition;
+
+      &:hover{
+        color: $black;
+      }
+    }
+  }
+
+  .footer-item{
+    &:nth-child(1){
+      max-width: 290px;
+
+      .contact-info{
+        margin-top: 24px;
+        li{
+          margin-bottom: 8px;
+          span{
+            font-weight: 500;
+          }
+        }
+      }
+
+      @include breakpoint-down(md){
+        margin-right: auto;
+        margin-left: auto;
+      }
+    }
+
+    @include breakpoint-down(md){
+      text-align: center;
+    }
+  }
+
+  .newsletter-form{
+    form{
+      margin-top: 30px;
+      max-width: 320px;
+
+      @include breakpoint-down(lg){
+        max-width: 520px;
+      }
+
+      @include breakpoint-down(lg){
+        max-width: 100%;
+      }
+    }
+
+    @include breakpoint-down(lg){
+      grid-column: 1/5;
+    }
+
+    @include breakpoint-down(lg){
+      grid-column: 1/1;
+    }
+  }
+
+  .form-group{
+    border: 1px solid #DCDDDF;
+    height: 48px;
+    border-radius: 6px;
+
+    .form-control{
+      border: 0;
+      padding-left: 16px;
+      padding-right: 12px;
+      border-radius: 6px;
+    }
+    .form-icon{
+      margin-right: 16px;
+      width: 20px;
+    }
+  }
+
+  .form-btn{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-align: center;
+    background-color: $neon-blue;
+    padding-right: 20px;
+    padding-left: 20px;
+    width: 100%;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+
+  .footer-bottom{
+    margin-top: 64px;
+    padding-top: 46px;
+    padding-bottom: 46px;
+    border-top: 1px solid $platinum;
+
+    .footer-brand{
+      max-width: 140px;
+      display: inline-block;
+
+      @include breakpoint-down(lg){
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer-list{
+      li{
+        margin-left: 32px;
+        margin-bottom: 0;
+
+        @include breakpoint-down(xs){
+          margin-left: 18px;
+
+          &:first-child{
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    @include breakpoint-down(md){
+      flex-direction: column;
+    }
+
+    @include breakpoint-down(xs){
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
+}

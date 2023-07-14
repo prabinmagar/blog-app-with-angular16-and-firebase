@@ -1,0 +1,72 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-item">
+        <h4 class="item-title">About</h4>
+        <p class="text-base text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+        <ul class="contact-info">
+          <li class="text-onyx text-base"><span>Email:</span> info@metablog.com</li>
+          <li class="text-onyx text-base"><span>Phone:</span> 8801244</li>
+        </ul>
+      </div>
+
+      <div class="footer-item">
+        <h4 class="item-title">Quick Link</h4>
+        <ul class="footer-list">
+          <li><a href="" class="footer-link text-base">Home</a></li>
+          <li><a href="" class="footer-link text-base">About</a></li>
+          <li><a href="" class="footer-link text-base">Blog</a></li>
+          <li><a href="" class="footer-link text-base">Archived</a></li>
+          <li><a href="" class="footer-link text-base">Author</a></li>
+          <li><a href="" class="footer-link text-base">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-item">
+        <h4 class="item-title">Category</h4>
+        <ul class="footer-list">
+          <li><a href="" class="footer-link text-base">Lifestyle</a></li>
+          <li><a href="" class="footer-link text-base">Technology</a></li>
+          <li><a href="" class="footer-link text-base">Travel</a></li>
+          <li><a href="" class="footer-link text-base">Business</a></li>
+          <li><a href="" class="footer-link text-base">Economy</a></li>
+          <li><a href="" class="footer-link text-base">Sports</a></li>
+        </ul>
+      </div>
+
+      <div class="newsletter-form text-center flex flex-col items-center">
+        <h4 class="item-title">Weekly Newsletter</h4>
+        <p class="text-base text">Get blog articles and offers via email</p>
+
+        <form class="w-full flex flex-col items-center" #subscribeForm="ngForm" (ngSubmit)="onSubmit(subscribeForm)">
+          <div class="form-group flex items-center justify-between w-full">
+            <input type="email" class="form-control" placeholder="Enter email address" #Email="ngModel" ngModel required email name="email" />
+            <img src="../../../assets/images/mail.svg" class="form-icon" alt = "" />
+          </div>
+          <button type="submit" class="form-btn text-base">Subscribe</button>
+        </form>
+        <div *ngIf="(Email.touched || subscribeForm.submitted) && Email.invalid">
+          <span class="form-text" *ngIf="Email.hasError('required')">Please enter an email</span>
+          <span class="form-text" *ngIf="Email.hasError('email')">Please enter valid email.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom flex items-center justify-between">
+      <a href="#" class="footer-brand">
+        <img src="../../../assets/images/logo.svg" alt="" />
+      </a>
+      <ul class="footer-list flex items-center">
+        <li>
+          <a href="#" class="footer-link text-base">Terms of Use</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link text-base">Privacy</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link text-base">Cookie Policy</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>

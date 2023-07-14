@@ -1,0 +1,25 @@
+<div class="comments-list">
+  <div class="comments-list-title">
+    <h3>Comments</h3>
+  </div>
+
+  <div *ngIf="commentsList.length > 0">
+    <div class="comments-list-item" *ngFor="let comment of commentsList">
+      <div class="item-wrapper">
+        <div class="item-avatar">
+          {{ comment?.name.charAt(0).toUpperCase() }}
+        </div>
+        <div class="item-head flex items-center">
+          <p class="item-head-name">{{ comment?.name }}</p>
+          <span class="item-head-date">-{{ comment?.createdAt.toDate() | date }}</span>
+        </div>
+        <div class="item-body">
+          {{ comment?.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="comments-msg" *ngIf="commentsList.length === 0">
+    <p>Be first to leave your comment for this post.</p>
+  </div>
+</div>

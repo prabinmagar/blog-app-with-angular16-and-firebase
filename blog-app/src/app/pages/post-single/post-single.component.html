@@ -1,0 +1,40 @@
+<section class="sc-single-post">
+  <div class="container post-content-wrapper">
+    <div class="post-content">
+      <div class="post-top">
+        <div class="badge badge-blue text-sm">{{ postData?.category.categoryName }}</div>
+        <h2 class="post-title text-raisin-black">{{ postData?.title }}</h2>
+        <div class="post-info">
+          <div class="author-img">
+            <img src="../../../assets/images/avatar.png" />
+          </div>
+          <div class="author-text flex items-center flex-wrap">
+            <span class="text-base">{{ postData?.author }}</span>
+            <span class="text-base">{{ postData?.createdAt.toDate() | date }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="post-body">
+        <img [src]="postData?.featuredImage" />
+        <div [innerHTML]="sanitizedHtml"></div>
+        <app-comments-form [postId]="postId"></app-comments-form>
+        <app-comments-list [postId]="postId"></app-comments-list>
+      </div>
+    </div>
+    <div class="post-related">
+      <h3 class="post-related-title">Related Posts to Read</h3>
+      <div class="related-item" *ngFor="let post of similarPosts" [routerLink]="['/posts', post.id]">
+        <div class="related-item-l">
+          <img [src]="post?.featuredImage" alt = "" />
+        </div>
+        <div class="related-item-r">
+          <h3 class="related-item-title">{{ post?.title }}</h3>
+          <div class="related-item-info flex items-center flex-wrap">
+            <p>By <span>John Doe</span></p>
+            <p>Jan 3, 2023</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

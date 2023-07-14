@@ -1,0 +1,38 @@
+
+<header class="header flex items-center">
+  <div class="container w-full">
+    <div class="header-top flex items-center justify-between">
+      <div class="brand-and-toggler flex items-center">
+        <a routerLink="/" class="navbar-brand">
+          <img src="../../../assets/images/logo.svg" alt="site logo" />
+        </a>
+        <button type="button" class="nav-show-btn flex items-center justify-center" (click)="onShow()">
+          <img src="../../../assets/images/menu.svg" alt="" />
+        </button>
+      </div>
+
+      <app-sidebar></app-sidebar>
+
+      <div class="search-and-mode flex items-center">
+        <form class="search-box flex items-center" #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm)">
+          <div class="input-group">
+            <input type="text" class="input-control" placeholder="Search" name="keyword" #Keyword="ngModel" ngModel />
+            <button type="submit" class="input-btn">
+              <img src="../../../assets/images/search-outline.svg" alt="search icon" />
+            </button>
+          </div>
+        </form>
+
+        <div class="mode-box">
+          <div class="toggle">
+            <input type="checkbox">
+            <div class="toggler-slider">
+              <img class="light-mode" src="../../../assets/images/light-mode.svg" />
+              <img class="dark-mode" src="../../../assets/images/dark-mode.svg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

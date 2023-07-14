@@ -1,0 +1,45 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>All Categories</h3>
+      </div>
+      <div class="content-body">
+        <div class="data-table" *ngIf="subscribersList">
+          <table>
+            <thead>
+              <tr>
+                <th>S.N.</th>
+                <th>Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let subscriber of subscribersList; let i=index;">
+                <td>{{ i + 1 }}</td>
+                <td>
+                  <div>
+                    <h4 class="title">{{ subscriber.email }} </h4>
+                    <p class="published-date">Added on {{ subscriber.createdAt.toDate() | date }} </p>
+                  </div>
+                </td>
+                <td>
+                  <button type="button" class="action-btn">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+

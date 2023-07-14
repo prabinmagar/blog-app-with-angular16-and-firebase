@@ -1,0 +1,59 @@
+<section class="sc-featured">
+  <div class="container">
+    <div class="featured-content">
+      <div class="featured-item" *ngFor="let featuredPost of featuredPosts">
+        <img class="featured-item-img object-fit-cover" [src]="featuredPost?.featuredImage" />
+        <div class="item-content bg-white">
+          <div class="badge badge-blue text-sm">{{ featuredPost?.category.categoryName }}</div>
+          <h2 class="item-title text-raisin-black text-lg">{{ featuredPost?.title }}</h2>
+          <div class="post-info">
+            <div class="author-img">
+              <img src="../../../assets/images/avatar.png" />
+            </div>
+            <div class="author-text flex items-center flex-wrap">
+              <span class="text-base">Jason Francisco</span>
+              <span class="text-base">August 20, 2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sc-latest">
+  <div class="container">
+    <div class="latest-content">
+      <div class="sc-title">
+        <h3 class="text-raisin-black text-xl">Latest Post</h3>
+      </div>
+      <div class="posts-list" *ngIf="postsList.length">
+        <app-post-card [postData]="post" *ngFor="let post of postsList"></app-post-card>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <a routerLink="/posts" class="btn btn-outline text-base">View All Post</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sc-category">
+  <div class="container">
+    <div class="category-content">
+      <div class="sc-title">
+        <h3 class="text-raisin-black text-xl">Choose a category</h3>
+      </div>
+
+      <div class="category-list" *ngIf="categoriesList">
+        <ngx-slick-carousel
+          class="carousel"
+          #slickModal="slick-carousel"
+          [config]="slideConfig"
+          (init)="slickInit($event)">
+            <app-category-card ngxSlickItem class="slide" [categoryData]="category" *ngFor="let category of categoriesList | slice:0:8"></app-category-card>
+        </ngx-slick-carousel>
+      </div>
+    </div>
+  </div>
+</section>

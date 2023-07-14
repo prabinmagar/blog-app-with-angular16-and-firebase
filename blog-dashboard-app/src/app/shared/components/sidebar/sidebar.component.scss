@@ -1,0 +1,39 @@
+
+@import "../../../../styles.scss";
+
+.sidebar{
+  width: 240px;
+  height: 100%;
+  padding: 48px 24px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+.nav-title{
+  font-weight: 600;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.nav-item{
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.nav-link{
+  display: grid;
+  align-items: center;
+  grid-template-columns: 28px auto;
+  padding: 12px;
+  color: #2A4365;
+  font-weight: 500;
+
+  &:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &.link{
+    background-color: $neon-blue;
+  }
+
+  &.active{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+}

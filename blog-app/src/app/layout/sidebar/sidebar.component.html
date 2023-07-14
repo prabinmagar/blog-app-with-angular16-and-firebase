@@ -1,0 +1,22 @@
+<div class="navigation flex items-center" [ngClass]="{ 'show-navigation' : sidebarService.isSidebarVisible }">
+  <button type="button" class="nav-hide-btn" (click)="onHide()">
+    <img src="../../../assets/images/close.svg" alt="" />
+  </button>
+  <ul class="nav-list flex items-center">
+    <li class="nav-item">
+      <a routerLink="/" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/about" class="nav-link">About</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/posts" class="nav-link">Posts</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/archive" class="nav-link">Archive</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/contact" class="nav-link">Contact</a>
+    </li>
+  </ul>
+</div>

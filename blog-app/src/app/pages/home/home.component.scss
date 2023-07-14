@@ -1,0 +1,118 @@
+@import "../../../styles.scss";
+
+.sc-featured{
+  padding: 36px 0;
+  .featured-content{
+    border-radius: 12px;
+  }
+
+  .featured-item{
+    border-radius: 12px;
+    position: relative;
+
+    &-img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    @include breakpoint-down(lg){
+      height: 460px;
+    }
+    @include breakpoint-down(md){
+      height: 420px;
+    }
+    @include breakpoint-down(sm){
+      height: 360px;
+    }
+    @include breakpoint-down(xs){
+      height: 300px;
+    }
+  }
+
+  .item-content{
+    padding: 40px;
+    position: absolute;
+    left: 64px;
+    bottom: -64px;
+    max-width: 600px;
+    border-radius: 12px;
+    box-shadow: 0px 12px 24px -6px rgba(24, 26, 42, 0.12);
+    border: 1px solid $platinum;
+
+    .item-title{
+      margin-top: 16px;
+      margin-bottom: 24px;
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 1.15;
+
+      @include breakpoint-down(xl){
+        font-size: 32px;
+      }
+
+      @include breakpoint-down(lg){
+        font-size: 28px;
+      }
+
+      @include breakpoint-down(xs){
+        font-size: 22px;
+      }
+    }
+
+    @include breakpoint-down(lg){
+      padding: 24px;
+    }
+
+    @include breakpoint-down(md){
+      left: 32px;
+      right: 32px;
+      max-width: 100%;
+      padding: 16px;
+    }
+
+    @include breakpoint-down(sm){
+      left: 12px;
+      right: 12px;
+    }
+  }
+}
+
+
+.sc-latest{
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.sc-category{
+  padding: 80px 0;
+  background: url('../../../assets/images/category_bg.jpg') center/cover no-repeat fixed;
+  position: relative;
+  overflow: hidden;
+
+  &::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  *{
+    position: relative;
+    z-index: 1;
+  }
+
+  .sc-title h3{
+    color: $white;
+  }
+  .category-list{
+    max-width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+

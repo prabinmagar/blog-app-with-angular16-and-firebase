@@ -1,0 +1,57 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>All Categories</h3>
+        <a routerLink="/categories/create" class="btn btn-add">
+          <span class="btn-icon">
+            <i class="bi bi-plus"></i>
+          </span>
+          <span class="btn-text">Add Category</span>
+        </a>
+      </div>
+      <div class="content-body">
+        <div class="data-table" *ngIf="categoriesList">
+          <table>
+            <thead>
+              <tr>
+                <th>S.N.</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categoriesList; let i=index;">
+                <td>{{ i + 1 }}</td>
+                <td>
+                  <div>
+                    <h4 class="title">{{ category.category }} </h4>
+                    <p class="published-date">Added on {{ category.createdAt.toDate() | date }} </p>
+                  </div>
+                </td>
+                <td>{{ category.description }}</td>
+                <td>
+                  <a routerLink="/categories/edit" [queryParams]="{id:category.id}" class="action-btn">
+                    <i class="bi bi-pencil-square"></i>
+                  </a>
+                  <button type="button" class="action-btn" (click)="onDeleteButtonClick(category.id)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <app-category-delete [modalData]="modalData" (modalClosed)="onModalClosed($event)"></app-category-delete>
+    </div>
+  </div>
+</main>
+
+
+
+
+

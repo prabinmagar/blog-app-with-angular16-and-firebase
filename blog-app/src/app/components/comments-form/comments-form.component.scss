@@ -1,0 +1,68 @@
+@import "../../../styles.scss";
+
+.comment-form{
+  margin: 40px 0;
+  border: 1px solid $black-01;
+  background-color: $raisin-black;
+  color: $white;
+  border-radius: 12px;
+  padding: 28px;
+
+  &-title{
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  .form-elem-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include breakpoint-down(md){
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .form-elem{
+    margin-bottom: 16px;
+  }
+  .form-control, .form-textarea{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    width: 100%;
+    padding: 6px 0;
+    color: $white;
+
+    &::placeholder{
+      color: $white;
+      opacity: 0.6;
+      font-size: 15px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .form-textarea{
+    height: 60px;
+  }
+
+  .form-checkbox{
+    margin-right: 10px;
+
+    & + span{
+      font-size: 15px;
+    }
+  }
+
+  .comment-btn{
+    border-color: $white;
+    background-color: $white;
+    color: $onyx;
+    font-weight: 500;
+    margin-top: 12px;
+    transition: $default-transition;
+
+    &:hover{
+      transform: translateY(3px);
+    }
+  }
+}

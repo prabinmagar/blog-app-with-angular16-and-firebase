@@ -1,0 +1,73 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>All Posts</h3>
+        <a routerLink="/posts/create" class="btn btn-add">
+          <span class="btn-icon">
+            <i class="bi bi-plus"></i>
+          </span>
+          <span class="btn-text">Add New</span>
+        </a>
+      </div>
+      <div class="content-body">
+        <div class="data-table" *ngIf="postsList">
+          <table>
+            <thead>
+              <tr>
+                <th>S.N.</th>
+                <th>Title</th>
+                <th>Featured</th>
+                <th>Status</th>
+                <th>Category</th>
+                <th>Views</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of postsList; let i=index;">
+                <td>{{ i + 1 }}</td>
+                <td>
+                  <div>
+                    <h4 class="title">{{ post.title.length > 50 ? post.title.slice(0, 50) + "..." : post.title }}</h4>
+                    <p class="published-date">Posted {{ post.createdAt.toDate() | date }}</p>
+                  </div>
+                </td>
+                <td>
+                  <button *ngIf="!post.isFeatured" type="button" class="set-btn" (click)="onFeaturedClick(post.id!)">set featured</button>
+                  <span *ngIf="post.isFeatured" class="pill pill-success">Featured</span>
+                </td>
+                <td>
+                  <button *ngIf="!post.status" type="button" class="set-btn" (click)="onStatusClick(post.id!)">publish</button>
+                  <span *ngIf="post.status" class="pill pill-success">Published</span>
+                </td>
+                <td><span class="category">{{ post.category.categoryName }}</span></td>
+                <td><div class="views">{{ post.views }} <span>views</span></div></td>
+                <td>
+                  <button routerLink="/posts/edit" [queryParams]="{id:post.id}" class="action-btn">
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button type="button" class="action-btn" (click)="onDeleteButtonClick(post.id, post.featuredImage)">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                  <a routerLink="/posts/details" [queryParams]="{id:post.id}" class="action-btn">
+                    <i class="bi bi-eye"></i>
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <app-post-delete [modalData]="modalData" (modalClosed)="onModalClosed($event)"></app-post-delete>
+    </div>
+  </div>
+</main>
+
+
+
+
+
+

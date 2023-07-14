@@ -1,0 +1,88 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>Post Details</h3>
+      </div>
+      <div class="content-body" *ngIf="detailsPostData && (detailsPostData | keysLength) > 0">
+        <div class="post-title">
+          <h3>{{ detailsPostData?.title }}</h3>
+        </div>
+
+        <div class="post-top flex items-center">
+          <div class="top-item">
+            <span>Author:&nbsp;</span>
+            <span>{{ detailsPostData?.author }}</span>
+          </div>
+          <div class="top-item">
+            <span>{{ detailsPostData?.createdAt.toDate() | date }}</span>
+          </div>
+          <div class="top-item">
+            <span>Category:&nbsp;</span>
+            <span>{{ detailsPostData?.category.categoryName }}</span>
+          </div>
+        </div>
+
+        <img [src]="detailsPostData?.featuredImage" />
+
+        <div class="post-excerpt">
+          <p><span>Excerpt:</span> {{ detailsPostData?.excerpt }}</p>
+        </div>
+
+        <div class="post-content" [innerHTML]="sanitizedContent">
+        </div>
+
+        <div class="post-tags">
+          <h3>Tags:</h3>
+          <ul class="tags-list flex">
+            <li class="tags-item" *ngFor="let tag of detailsPostData.tags">
+              <span>
+                <i class="bi bi-tags"></i>
+              </span>
+              <span>{{ tag }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="post-bottom flex items-center flex-wrap">
+          <div class="bottom-item flex items-center">
+            <span>
+              <i class="bi bi-eye-fill"></i>
+            </span>
+            <span>{{ detailsPostData?.views }}</span>
+          </div>
+          <div class="bottom-item">
+            <span>Status</span>
+            <span *ngIf="detailsPostData?.status"><i class="bi bi-check2"></i></span>
+            <span *ngIf="!detailsPostData?.status"><i class="bi bi-x-lg"></i></span>
+          </div>
+          <div class="bottom-item">
+            <span>Featured </span>
+            <span *ngIf="detailsPostData?.isFeatured"><i class="bi bi-check2"></i></span>
+            <span *ngIf="!detailsPostData?.isFeatured"><i class="bi bi-x-lg"></i></span>
+          </div>
+        </div>
+
+        <div class="post-comments" *ngIf="detailsCommentsData.length > 0">
+          <h3>Comments:</h3>
+          <div class="comments-list">
+            <div class="comment-item" *ngFor="let comment of detailsCommentsData">
+              <div class="item-avatar">
+                {{ comment.name.charAt(0).toUpperCase() }}
+              </div>
+              <div class="item-text">
+                <h5 class="item-text-name">{{ comment.name }}</h5>
+                <p>{{ comment.message }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+

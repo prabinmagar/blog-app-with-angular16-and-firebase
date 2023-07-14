@@ -1,0 +1,41 @@
+<div class="pg-login flex items-center flex-col justify-center">
+  <div class="login-title">
+    <h3 class="text-white">Meta<span>Blog.</span></h3>
+  </div>
+  <div class="container">
+    <div class="login-content bg-white">
+
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+        <div class="form-elem">
+          <label for="email" class="form-label flex items-center">
+            <span class="label-icon">
+              <i class="bi bi-person-circle"></i>
+            </span>
+            <span class="label-text">Email address</span>
+          </label>
+          <input type="text" class="form-control" name="email" ngModel required #Email="ngModel" [ngClass]="{'is-invalid': Email.touched && Email.invalid }" />
+          <div *ngIf="Email.touched && Email.invalid">
+            <span class="form-text" *ngIf="Email.hasError('required')">Email can't be empty</span>
+            <span class="form-text" *ngIf="Email.hasError('email')">Please enter a valid email address.</span>
+          </div>
+        </div>
+
+        <div class="form-elem">
+          <label for="email" class="form-label flex items-center">
+            <span class="label-icon">
+              <i class="bi bi-key"></i>
+            </span>
+            <span  class="label-text">Password</span>
+          </label>
+          <input type="password" class="form-control" name="password" ngModel required #Password="ngModel" [ngClass]="{'is-invalid': Password.touched && Password.invalid }" />
+          <div *ngIf="Password.touched && Password.invalid">
+            <span class="form-text" *ngIf="Password.hasError('required')">Password can't be empty</span>
+            <span class="form-text" *ngIf="Password.hasError('password')">Please enter a valid Password.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="login-btn btn" [disabled]="loginForm.invalid">Sign in</button>
+      </form>
+    </div>
+  </div>
+</div>

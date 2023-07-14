@@ -1,0 +1,40 @@
+<app-header></app-header>
+<main class="main-content">
+  <app-sidebar></app-sidebar>
+  <div class="holder">
+    <div class="content-wrapper">
+      <div class="content-top flex items-center justify-between">
+        <h3>Add New Category</h3>
+      </div>
+      <div class="content-body">
+        <div class="post-form">
+          <form #categoryAddForm="ngForm" (ngSubmit)="onSubmit(categoryAddForm)">
+            <div class="form-elem-group">
+              <div class="form-elem">
+                <label for="" class="form-label">Category Name</label>
+                <input type="text" class="form-control" placeholder="E.g. Current affairs *" #Category="ngModel" ngModel required [ngClass]="{ 'is-invalid' : Category.touched && Category.invalid}" name="category" />
+                <div *ngIf="Category.touched && Category.invalid">
+                  <span class="form-text" *ngIf="Category.hasError('required')">Category can't be empty</span>
+                  <span class="form-text" *ngIf="Category.hasError('email')">Please enter a valid email address.</span>
+                </div>
+              </div>
+              <div class="form-elem">
+                <label for="" class="form-label">Description</label>
+                <input type="text" class="form-control" placeholder="(somthing about the category)" name="description" ngModel />
+              </div>
+            </div>
+
+            <div class="form-btn-wrapper">
+              <button type="submit" class="btn" [disabled]="categoryAddForm.invalid">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+
+

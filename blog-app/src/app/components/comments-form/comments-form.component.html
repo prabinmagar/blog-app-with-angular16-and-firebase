@@ -1,0 +1,23 @@
+<div class="comment-form">
+  <div class="comment-form-title">
+    <h3>Leave a comment</h3>
+  </div>
+  <form [formGroup]="addCommentForm" (ngSubmit)="onSubmit()">
+    <div class="form-elem-group">
+      <div class="form-elem">
+        <input type="text" class="form-control" placeholder="Your name here ..." formControlName="name" />
+      </div>
+      <div class="form-elem">
+        <input type="email" class="form-control" placeholder="Your email here ..." formControlName="email" />
+      </div>
+    </div>
+    <div class="form-elem">
+      <textarea class="form-textarea" placeholder="Your message here..." formControlName="message"></textarea>
+    </div>
+    <div class="form-elem">
+      <input type="checkbox" class="form-checkbox" formControlName="subscribeNewsletter" />
+      <span>Subscribe me to the newsletter</span>
+    </div>
+    <button type="submit" class="btn comment-btn">Post comment</button>
+  </form>
+</div>

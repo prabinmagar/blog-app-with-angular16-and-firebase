@@ -1,0 +1,176 @@
+@import "../../../styles.scss";
+
+.header {
+  height: 100px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $white;
+
+  .navbar-brand {
+    margin-right: 16px;
+    img {
+      max-width: 158px;
+    }
+  }
+
+  .nav-show-btn {
+    max-width: 20px;
+    cursor: pointer;
+    display: none;
+
+    @include breakpoint-down(lg){
+      display: flex;
+    }
+  }
+
+  .search-box {
+    background-color: #f4f4f5;
+    border-radius: 5px;
+    height: 40px;
+
+    .input-group {
+      padding-right: 12px;
+      display: grid;
+      align-items: center;
+      grid-template-columns: auto 18px;
+
+      @include breakpoint-down(md){
+        width: 100%;
+      }
+    }
+
+    .input-control {
+      border: none;
+      background-color: transparent;
+      padding-right: 16px;
+      padding-left: 16px;
+
+      &::placeholder {
+        color: #a1a1aa;
+        font-size: 14px;
+      }
+
+      @include breakpoint-down(xl) {
+        max-width: 180px;
+      }
+
+      @include breakpoint-down(md){
+        max-width: 100%;
+      }
+    }
+
+    @include breakpoint-down(md){
+      width: 100%;
+    }
+  }
+
+  .mode-box {
+    margin-left: 42px;
+
+    .toggle {
+      position: relative;
+      width: 56px;
+      height: 28px;
+      border-radius: 100vh;
+      background-color: $platinum;
+      display: inline-block;
+
+      .toggler-slider {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: $platinum;
+        border-radius: 100vh;
+        cursor: pointer;
+        transition: $default-transition;
+        display: flex;
+        align-items: center;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          bottom: 2px;
+          width: 24px;
+          height: 24px;
+          background-color: $white;
+          border-radius: 100%;
+          transition: $default-transition;
+        }
+
+        img {
+          width: 15px;
+          position: relative;
+          z-index: 6;
+          left: 6px;
+
+          &.dark-mode {
+            left: 20px;
+            visibility: hidden;
+            opacity: 0;
+            transition: $default-transition;
+          }
+        }
+      }
+
+      input {
+        z-index: 5;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+
+        &:checked + .toggler-slider {
+          .light-mode {
+            visibility: hidden;
+            opacity: 0;
+          }
+
+          .dark-mode {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+
+        &:checked + .toggler-slider {
+          &::after {
+            left: auto;
+            right: 2px;
+          }
+        }
+      }
+    }
+
+    @include breakpoint-down(xl) {
+      margin-left: 20px;
+    }
+  }
+
+  .header-top{
+    @include breakpoint-down(md){
+      flex-direction: column;
+
+      .brand-and-toggler{
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .search-and-mode{
+        justify-content: space-between;
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint-down(md){
+    height: 120px;
+  }
+}

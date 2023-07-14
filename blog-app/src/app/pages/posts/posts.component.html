@@ -1,0 +1,12 @@
+<section class="sc-posts">
+  <div class="container">
+    <div class="posts-content">
+      <div class="sc-title">
+        <h3 class="text-raisin-black text-xl">All Posts</h3>
+      </div>
+      <div class="posts-list grid" *ngIf="postsList">
+        <app-post-card [postData]="post" *ngFor="let post of postsList"></app-post-card>
+      </div>
+    </div>
+  </div>
+</section>

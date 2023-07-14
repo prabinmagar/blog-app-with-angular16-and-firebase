@@ -1,0 +1,8 @@
+<div class="delete-modal" *ngIf="modalData.showModal">
+  <h2 class="modal-title">Confirm Deletion</h2>
+  <p class="modal-text">Are you sure you want to delete?</p>
+  <div class="modal-btn-group">
+    <button class="modal-btn confirm-btn" (click)="onModalConfirmed()">Confirm</button>
+    <button class="modal-btn cancel-btn" (click)="onModalCanceled()">Close</button>
+  </div>
+</div>

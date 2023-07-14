@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.sc-single-post {
+  padding: 48px 0;
+
+  .post-content-wrapper {
+    display: grid;
+    grid-template-columns: 65% auto;
+    gap: 24px;
+
+    @include breakpoint-down(lg){
+      grid-template-columns: 100%;
+    }
+  }
+
+  .post-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 16px;
+    margin-bottom: 24px;
+  }
+  .post-body {
+    margin: 40px 0;
+    img {
+      margin-bottom: 16px;
+    }
+    p {
+      margin: 12px 0;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+  }
+  .post-related {
+    border-left: 1px solid $black-01;
+    padding-left: 24px;
+
+    &-title{
+      font-size: 24px;
+      margin-bottom: 32px;
+      position: relative;
+
+      &::after{
+        content: "";
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 60%;
+        height: 4px;
+        background-color: $neon-blue;
+      }
+    }
+  }
+  .related-item {
+    padding: 16px;
+    border-bottom: 1px solid $black-01;
+    margin-bottom: 16px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 100px auto;
+    column-gap: 20px;
+    transition: $default-transition;
+
+    &:hover{
+      background-color: #f4f4f5;
+    }
+
+    &-l{
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .related-item-title {
+    margin-bottom: 8px;
+  }
+  .related-item-info {
+    padding-top: 12px;
+    font-size: 15px;
+
+    *:first-child {
+      margin-right: 8px;
+    }
+
+    p{
+      margin: 2px 0;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}

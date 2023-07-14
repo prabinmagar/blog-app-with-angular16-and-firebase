@@ -1,0 +1,42 @@
+@import "../../../styles.scss";
+
+.post{
+  border-radius: 12px;
+  border: 1px solid $platinum;
+  padding: 16px;
+  cursor: pointer;
+
+  &-img{
+    height: 240px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  &-badge{
+    color: $neon-blue;
+    font-weight: 500;
+    background: rgba(75, 107, 251, 0.05);
+  }
+  &-title{
+    margin-top: 16px;
+    margin-bottom: 10px;
+    height: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include breakpoint-down(lg){
+      margin-top: 14px;
+      margin-bottom: 10px;
+    }
+  }
+  &-body{
+    margin-top: 24px;
+  }
+  &-info{
+    padding: 8px;
+  }
+  &-stat{
+    span{
+      font-weight: 600;
+    }
+  }
+}

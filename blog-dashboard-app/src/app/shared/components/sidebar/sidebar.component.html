@@ -1,0 +1,56 @@
+<nav class="sidebar">
+  <div class="sidebar-wrapper">
+    <div class="nav-title">Manage</div>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+          <span class="link-icon">
+            <i class="bi bi-house-fill"></i>
+          </span>
+          <span class="link-text">Dashboard</span>
+        </a>
+      </li>
+      <li class ="nav-item">
+        <a routerLinkActive="active" routerLink="/posts/create" class="nav-link">
+          <span class="link-icon">
+            <i class="bi bi-plus-circle"></i>
+          </span>
+          <span class="link-text">Add Post</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/posts" class="nav-link" [routerLinkActiveOptions]="{ exact: true }">
+          <span class="link-icon">
+            <i class="bi bi-vector-pen"></i>
+          </span>
+          <span class="link-text">Posts</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/categories" class="nav-link">
+          <span class="link-icon">
+            <i class="bi bi-grid-fill"></i>
+          </span>
+          <span class="link-text">Categories</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/subscriptions" class="nav-link">
+          <span class="link-icon">
+            <i class="bi bi-lightning"></i>
+          </span>
+          <span class="link-text">Subscriptions</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" href="#" class="nav-link">
+          <span class="link-icon">
+            <i class="bi bi-gear"></i>
+          </span>
+          <span class="link-text">Settings</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

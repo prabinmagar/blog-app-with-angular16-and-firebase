@@ -1,0 +1,16 @@
+
+<div class="category-item-wrapper">
+  <div class="category-item" [routerLink]="['/categories', categoryData.id]">
+    <h4 class="category-item-title">{{ categoryData?.category }}</h4>
+    <div class="category-item-body">
+      <p class="category-item-description">{{categoryData?.description }}</p>
+      <a class="category-item-link">
+        <span class="link-text">Show Posts</span>
+        <span class="link-icon">
+          <i class="bi bi-chevron-right"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+@import "../../../../styles.scss";
+
+.header{
+  color: $white;
+  height: 70px;
+  background-color: $raisin-black;
+}
+
+.site-name{
+  font-size: 22px;
+  font-weight: 600;
+
+  span{
+    color: $neon-blue;
+  }
+}
+.notify-btn, .logout-btn{
+  margin-right: 14px;
+}
+.profile-btn{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+}

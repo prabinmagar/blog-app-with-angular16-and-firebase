@@ -1,0 +1,28 @@
+<section class="sc-single-category">
+  <div class="container">
+    <div class="single-category-content">
+      <div class="category-top">
+        <img src="../../../assets/images/featured-img.png" />
+        <div class="category-top-content">
+          <h2 class="category-top-title text-white text-lg flex items-center">
+            <a routerLink="/">Home</a>
+            <span class="title-separator"><i class="bi bi-chevron-right"></i></span>
+            <span>{{ categoryData?.category }}</span>
+          </h2>
+          <p class="category-top-description">{{ categoryData?.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="posts-list" *ngIf="categoryPosts.length > 0">
+      <app-post-card [postData]="post" *ngFor="let post of categoryPosts"></app-post-card>
+    </div>
+    <div class="not-found-text" *ngIf="categoryPosts.length == 0">
+      <span>No any post found for this category.</span>
+    </div>
+
+    <!-- <div class="flex items-center justify-center">
+      <a href="#" class="btn btn-outline text-base">View All Post</a>
+    </div> -->
+  </div>
+</section>
